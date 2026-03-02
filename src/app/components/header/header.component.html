@@ -1,0 +1,47 @@
+<header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <!-- Logo -->
+      <div class="logo">
+        <a routerLink="/">
+          <img src="/images/Logo/logo.png" alt="Cagimao General Trading FZE" class="logo-image">
+
+        </a>
+
+
+
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+          <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+          <li><a routerLink="/products" routerLinkActive="active">Products</a></li>
+
+          <li><a routerLink="/services" routerLinkActive="active">Services</a></li>
+          <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn" (click)="toggleMenu()" [class.active]="isMenuOpen">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" [class.open]="isMenuOpen">
+      <ul class="mobile-nav-links">
+        <li><a routerLink="/" (click)="closeMenu()" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+        <li><a routerLink="/about" (click)="closeMenu()" routerLinkActive="active">About</a></li>
+        <li><a routerLink="/services" (click)="closeMenu()" routerLinkActive="active">Services</a></li>
+        <li><a routerLink="/products" (click)="closeMenu()" routerLinkActive="active">Products</a></li>
+        <li><a routerLink="/contact" (click)="closeMenu()" routerLinkActive="active">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,199 @@
+<div class="contact-page">
+
+  <!-- ═══ HERO ════════════════════════════════════════════════════════ -->
+  <section class="contact-hero">
+    <div class="ch-left">
+      <span class="section-eyebrow">Get in Touch</span>
+      <h1 class="ch-title">Let's talk <em>business.</em></h1>
+      <div class="ch-bar"></div>
+      <p class="ch-desc">Whether you're looking for sourcing support, distribution partnership, or product information,
+        our team is ready to assist. We respond within 24 hours.</p>
+    </div>
+
+    <div class="ch-right">
+      <div class="ch-right-content">
+        <a href="mailto:info@cagimao.com" class="chil-item chil-item--link">
+          <div>
+            <span class="chil-label">Email</span>
+            <span class="chil-val">info&#64;cagimao.com</span>
+          </div>
+        </a>
+        <a href="https://wa.me/971521463284" target="_blank" class="chil-item chil-item--link">
+          <div>
+            <span class="chil-label">WhatsApp / Phone</span>
+            <span class="chil-val">052 146 3284</span>
+          </div>
+        </a>
+        <div class="chil-item">
+          <div>
+            <span class="chil-label">Office Address</span>
+            <span class="chil-val">Office NO. LB11011<br />Jebel Ali Free Zone, Dubai, UAE</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MAIN: FORM + MAP ══════════════════════════════════════════════ -->
+  <section class="contact-main-section">
+    <div class="contact-main-inner">
+
+
+
+      <!-- ── Side col: map + WA card ── -->
+      <div class="side-col">
+        <div class="map-block">
+          <div class="map-label-row">
+            <span class="section-eyebrow">Our Location</span>
+          </div>
+          <div class="map-frame">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3619.634424678759!2d55.1458723!3d24.8749788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f6b5b5b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2sJebel%20Ali%20Free%20Zone!5e0!3m2!1sen!2sae!4v1644567890123!5m2!1sen!2sae"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              title="Cagimao Location — Jebel Ali Free Zone, Dubai UAE">
+            </iframe>
+            <div class="map-overlay-chip">
+              <span>📍</span>
+              <span>Office LB11011, JAFZA, Dubai</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ── Form col ── -->
+      <div class="form-col">
+        <div class="form-col-head">
+          <span class="section-eyebrow">Direct Message</span>
+          <h2 class="form-heading">Send us a message</h2>
+          <p class="form-subhead">We'll get back to you within 24 hours</p>
+        </div>
+
+      <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="contact-form">
+  <div class="form-row-2">
+    <div class="form-group">
+      <label for="name">Full Name <span class="req">*</span></label>
+      <input 
+        type="text" 
+        id="name" 
+        name="name" 
+        [(ngModel)]="formData.name" 
+        required 
+        #name="ngModel" 
+        placeholder="Your full name"
+        class="form-control" 
+        [class.error]="name.invalid && name.touched" />
+      <div class="error-msg" *ngIf="name.invalid && name.touched">Name is required</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email Address <span class="req">*</span></label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        [(ngModel)]="formData.email" 
+        required 
+        email 
+        #email="ngModel"
+        placeholder="your@email.com" 
+        class="form-control" 
+        [class.error]="email.invalid && email.touched" />
+      <div class="error-msg" *ngIf="email.invalid && email.touched">
+        <span *ngIf="email.errors?.['required']">Email is required</span>
+        <span *ngIf="email.errors?.['email']">Enter a valid email</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-row-2">
+    <!-- Phone Field with Validation -->
+    <div class="form-group">
+      <label for="mobile">Phone Number <span class="req">*</span></label>
+      <input 
+        type="tel" 
+        id="mobile" 
+        name="mobile" 
+        [(ngModel)]="formData.mobile" 
+        (input)="formatPhoneNumber($event)"
+        required
+        placeholder="+12345..(with country code)"
+        class="form-control"
+        [class.error]="formSubmitted && !validateMobileNumber()">
+      
+      <div class="error-msg" *ngIf="formSubmitted && !validateMobileNumber() && formData.mobile">
+        Please enter a valid international phone number
+      </div>
+      
+      <div class="error-msg" *ngIf="formSubmitted && !formData.mobile">
+        Phone number is required
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="subject">Subject <span class="req">*</span></label>
+      <select 
+        id="subject" 
+        name="subject" 
+        [(ngModel)]="formData.subject" 
+        required 
+        #subject="ngModel" 
+        class="form-control"
+        [class.error]="subject.invalid && subject.touched">
+        <option value="" disabled selected>Select a subject</option>
+        <option value="General Inquiry">General Inquiry</option>
+        <option value="Distribution Partnership">Distribution Partnership</option>
+        <option value="Sourcing Request">Sourcing Request</option>
+        <option value="Product Information">Product Information</option>
+        <option value="Other">Other</option>
+      </select>
+      <div class="error-msg" *ngIf="subject.invalid && subject.touched">Please select a subject</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Message <span class="req">*</span></label>
+    <textarea 
+      id="message" 
+      name="message" 
+      [(ngModel)]="formData.message" 
+      required 
+      #message="ngModel" 
+      rows="5"
+      placeholder="Tell us how we can help you..." 
+      class="form-control"
+      [class.error]="message.invalid && message.touched"></textarea>
+    <div class="error-msg" *ngIf="message.invalid && message.touched">Please enter your message</div>
+  </div>
+
+  <div class="form-actions">
+    <div class="btn-row">
+      <button type="submit" class="btn-submit" [disabled]="contactForm.invalid || isSubmitting">
+        <span *ngIf="!isSubmitting">
+          Send Email
+        </span>
+        <span *ngIf="isSubmitting">Sending...</span>
+      </button>
+
+      <button type="button" class="btn-submit btn-wa" (click)="onWhatsAppSubmit(contactForm)"
+        [disabled]="contactForm.invalid || isSubmittingWhatsApp">
+        <span *ngIf="!isSubmittingWhatsApp">
+          WhatsApp
+        </span>
+        <span *ngIf="isSubmittingWhatsApp">Opening...</span>
+      </button>
+    </div>
+  </div>
+</form>
+
+        <!-- Success state -->
+        <div class="success-message" *ngIf="showSuccess">
+          <div class="success-icon">✓</div>
+          <div class="success-body">
+            <strong>Message Sent!</strong>
+            <p>Thank you — we'll get back to you within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
