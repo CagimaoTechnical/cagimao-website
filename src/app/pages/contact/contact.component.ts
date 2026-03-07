@@ -32,7 +32,7 @@ export class ContactComponent {
   private templateId = 'template_402p5b5';
 
   // WhatsApp configuration
-  private whatsappNumber = '97452004094'; // Your WhatsApp number
+  private whatsappNumber = '971521463284'; // Your WhatsApp number
 
   constructor() {
     // Initialize EmailJS with your public key

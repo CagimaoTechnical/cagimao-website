@@ -842,6 +842,8 @@
 /* ===== MOBILE STYLES ===== */
 /* 767px and below */
 @media (max-width: 767px) {
+
+
   .hero-inner {
     grid-template-columns: 1fr;
     gap: 0.5rem;
@@ -898,7 +900,7 @@
   }
   
   .auralis-pills {
-    justify-content: center;
+    /* justify-content: center; */
   }
 
   .auralis-inner {
@@ -924,6 +926,9 @@
   
   .wc {
     padding: 1.5rem;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
   }
   
   .wc--big {
@@ -932,6 +937,10 @@
   
   .cta-inner {
     gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
   
   .cta-heading {
@@ -1004,6 +1013,7 @@
     font-size: 0.9rem;
   }
   
+  
   .wc h3 {
     font-size: 1rem;
   }
@@ -1018,6 +1028,7 @@
   
   .cta-body {
     font-size: 0.9rem;
+    margin: 0 0 0.5rem;
   }
   
   .btn-cta {
