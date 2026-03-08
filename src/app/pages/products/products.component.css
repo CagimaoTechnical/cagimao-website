@@ -342,6 +342,57 @@
   align-self: flex-start;
 }
 
+/* --- NEW STYLES FOR TEXTILE CARD CONTENT --- */
+.pcard-regions {
+  margin-top: 0.5rem;
+}
+
+.pcard-regions strong {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.region-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.region-item {
+  font-size: 0.9rem;
+  background: var(--secondary-light, #fef5e0);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid var(--secondary);
+  color: var(--dark);
+}
+
+.pcard-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.feature-item {
+  font-size: 0.9rem;
+  color: var(--secondary-dark);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.feature-item::before {
+  content: "•";
+  color: var(--secondary);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+/* -------------------------------------------- */
+
 /* Wide card internals */
 .pcard.wide .pcard-body {
   flex: 1;
@@ -636,7 +687,6 @@
 .pcard:nth-child(3) { animation: riseIn 0.5s ease-out 0.24s both; }
 .pcard:nth-child(4) { animation: riseIn 0.5s ease-out 0.31s both; }
 .pcard:nth-child(5) { animation: riseIn 0.5s ease-out 0.38s both; }
-.pcard:nth-child(6) { animation: riseIn 0.5s ease-out 0.45s both; }
 
 /* ===== LAPTOP/TABLET STYLES ===== */
 /* 768px to 1023px */
