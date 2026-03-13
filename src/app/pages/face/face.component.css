@@ -214,6 +214,7 @@
   padding: .5rem 1.5rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0.5rem;
   position: relative;
   overflow: hidden;
@@ -241,7 +242,7 @@
 }
 
 .hab-eyebrow {
-  font-size: 0.65rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
