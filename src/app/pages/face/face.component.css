@@ -234,12 +234,18 @@
   pointer-events: none;
 }
 
+.auralis-logo-small {
+  /* width: 100%; */
+  width: 225px;
+  height: auto;
+}
+
 .hab-eyebrow {
   font-size: 0.65rem;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: white;
+  color: var(--warning);
   margin-top: 0.25rem;
 }
 
